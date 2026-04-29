@@ -43,7 +43,7 @@ psql -U postgres -c "CREATE DATABASE dealership_db;"
 psql -U postgres -d dealership_db -f database.sql
 ```
 
-On Windows (PowerShell):
+On Windows (PowerShell) — replace `18` with your installed PostgreSQL version:
 
 ```powershell
 & "C:\Program Files\PostgreSQL\18\bin\psql.exe" -U postgres -c "CREATE DATABASE dealership_db;"
@@ -56,13 +56,34 @@ The seed data creates the admin user and three brand accounts (Tata, Kia, Volksw
 
 ```bash
 cd backend
+```
+
+Create and activate a virtual environment:
+
+```bash
+# Mac / Linux
+python -m venv .venv
+source .venv/bin/activate
+
+# Windows (PowerShell)
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+```
+
+Install dependencies:
+
+```bash
 pip install -r requirements.txt
 ```
 
 Copy the environment template and fill in your credentials:
 
 ```bash
+# Mac / Linux
 cp .env.example .env
+
+# Windows
+copy .env.example .env
 ```
 
 Edit `backend/.env`:
